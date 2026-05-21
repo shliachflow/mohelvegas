@@ -308,7 +308,7 @@
     }
 
     #mobile-nav {
-      position: fixed; inset: 0; z-index: 80;
+      position: fixed; inset: 0; z-index: 220;
       background: var(--ink);
       display: flex; flex-direction: column; justify-content: center; padding: 2.5rem;
       opacity: 0; pointer-events: none; transition: opacity .35s var(--ease);
@@ -322,7 +322,8 @@
     }
     #mobile-nav a:hover { color: var(--gold-mid); padding-left: .75rem; }
     .close-btn {
-      position: absolute; top: 1.5rem; right: 1.5rem;
+      position: absolute; top: max(1.5rem, env(safe-area-inset-top)); right: max(1.5rem, env(safe-area-inset-right));
+      z-index: 2; touch-action: manipulation;
       width: 46px; height: 46px; display: grid; place-items: center;
       border: 1px solid rgba(253,252,250,.18); border-radius: 50%;
       color: rgba(253,252,250,.7); font-size: 1.4rem; line-height: 1;
@@ -1276,11 +1277,13 @@
   var mobileNav = document.getElementById('mobile-nav');
   var closeBtn  = document.getElementById('close-btn');
 
-  function openMenu()  { mobileNav.classList.add('open');    burger.setAttribute('aria-expanded', 'true');  document.body.style.overflow = 'hidden'; }
-  function closeMenu() { mobileNav.classList.remove('open'); burger.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; }
+  function openMenu()  { mobileNav.classList.add('open');    burger.setAttribute('aria-expanded', 'true');  document.body.style.overflow = 'hidden'; closeBtn.focus({ preventScroll: true }); }
+  function closeMenu() { mobileNav.classList.remove('open'); burger.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; burger.focus({ preventScroll: true }); }
 
   burger.addEventListener('click', openMenu);
   closeBtn.addEventListener('click', closeMenu);
+  closeBtn.addEventListener('touchend', function (e) { e.preventDefault(); closeMenu(); }, { passive: false });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && mobileNav.classList.contains('open')) closeMenu(); });
   mobileNav.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', closeMenu); });
 
   /* Smooth anchor scroll */
