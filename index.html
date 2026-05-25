@@ -116,6 +116,7 @@
     }
     .nav-inner {
       height: 78px;
+      position: relative;
       display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
     }
     .brand { display: flex; align-items: center; gap: .95rem; min-width: 0; }
@@ -142,6 +143,112 @@
     .nav-actions { display: flex; align-items: center; gap: .65rem; }
     .nav-phone { padding: .75rem 1.08rem; border-radius: 999px; background: var(--ink); color: #fff; font-weight: 850; letter-spacing: .045em; }
     .nav-actions .btn { min-height: 42px; padding: .7rem 1rem; }
+    .menu-toggle {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      width: 44px;
+      height: 44px;
+      padding: 0;
+      border: 1px solid rgba(24,48,71,.18);
+      border-radius: 999px;
+      background: var(--ink);
+      color: #fff;
+      box-shadow: 0 12px 28px rgba(24,48,71,.16);
+      cursor: pointer;
+      z-index: 3;
+    }
+    .menu-toggle span {
+      display: block;
+      width: 16px;
+      height: 1.5px;
+      border-radius: 2px;
+      background: currentColor;
+    }
+    .menu-toggle span + span { margin-top: 4px; }
+    #mobile-menu {
+      position: fixed;
+      inset: 0;
+      z-index: 450;
+      display: grid;
+      place-items: center;
+      padding: 6rem 1.5rem 2rem;
+      background:
+        radial-gradient(circle at 24% 18%, rgba(211,180,111,.18), transparent 28%),
+        linear-gradient(154deg, #31576d, #183047 72%);
+      color: #fff;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-10px);
+      transition: opacity .32s var(--ease), transform .32s var(--ease);
+    }
+    #mobile-menu.open {
+      opacity: 1;
+      pointer-events: auto;
+      transform: none;
+    }
+    .mobile-menu-panel {
+      width: min(100%, 360px);
+      display: grid;
+      gap: 1.25rem;
+    }
+    .mobile-menu-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(255,255,255,.13);
+    }
+    .mobile-menu-title {
+      font-family: var(--display);
+      font-size: 1.5rem;
+      line-height: 1;
+    }
+    .mobile-menu-sub {
+      display: block;
+      margin-top: .35rem;
+      color: rgba(255,255,255,.56);
+      font-size: .68rem;
+      font-weight: 850;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+    .menu-close {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255,255,255,.22);
+      border-radius: 50%;
+      background: rgba(255,255,255,.06);
+      color: #fff;
+      font-size: 1.5rem;
+      line-height: 1;
+      cursor: pointer;
+    }
+    .mobile-menu-links {
+      display: grid;
+      gap: .2rem;
+    }
+    .mobile-menu-links a {
+      font-family: var(--display);
+      font-size: clamp(2.35rem, 12vw, 3.35rem);
+      line-height: 1;
+      padding: .82rem 0;
+      color: rgba(255,255,255,.88);
+      border-bottom: 1px solid rgba(255,255,255,.09);
+    }
+    .mobile-menu-actions {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: .7rem;
+      margin-top: .6rem;
+    }
+    .mobile-menu-actions .btn {
+      width: 100%;
+    }
 
     .hero {
       min-height: 100svh;
@@ -332,11 +439,12 @@
     #wa-float svg { width: 26px; height: 26px; fill: currentColor; }
 
     @media (max-width: 980px) {
-      .nav-inner { height: auto; min-height: 82px; padding: .9rem 0; display: grid; grid-template-columns: 1fr; align-items: start; }
-      .nav-actions { grid-column: 1; grid-row: 2; justify-content: start; flex-wrap: wrap; }
+      .nav-inner { height: auto; min-height: 82px; padding: .9rem 0; display: grid; grid-template-columns: 1fr auto; align-items: center; }
+      .nav-actions { grid-column: 1 / -1; grid-row: 2; justify-content: start; flex-wrap: wrap; }
       .nav-actions .btn { display: inline-flex; min-height: 40px; padding: .62rem .8rem; font-size: .68rem; }
-      .nav-links { grid-column: 1; grid-row: 3; overflow-x: auto; gap: 1rem; padding: .35rem 0 .1rem; scrollbar-width: none; }
+      .nav-links { display: none; }
       .nav-links::-webkit-scrollbar { display: none; }
+      .menu-toggle { display: inline-flex; position: static; }
       .hero { grid-template-columns: 1fr; padding-top: 152px; }
       .hero-media { order: -1; padding: 1rem; }
       .photo-frame { width: 100%; height: 36svh; min-height: 290px; }
@@ -405,9 +513,36 @@
     <div class="nav-actions">
       <a class="nav-phone" href="tel:7023345463">702-334-5463</a>
       <a class="btn btn-wa" href="https://wa.me/17023345463" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </div>
 </nav>
+
+<div id="mobile-menu" aria-hidden="true">
+  <div class="mobile-menu-panel" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+    <div class="mobile-menu-head">
+      <div>
+        <div class="mobile-menu-title">Rabbi Yossi Shuchat</div>
+        <span class="mobile-menu-sub">Certified Mohel · Las Vegas</span>
+      </div>
+      <button class="menu-close" id="menu-close" type="button" aria-label="Close menu">&times;</button>
+    </div>
+    <div class="mobile-menu-links">
+      <a href="#bio">Bio</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="mobile-menu-actions">
+      <a href="tel:7023345463" class="btn btn-gold">Call Now</a>
+      <a href="https://wa.me/17023345463" class="btn btn-wa" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+    </div>
+  </div>
+</div>
 
 <main id="home">
   <section class="hero" aria-labelledby="hero-title">
@@ -581,12 +716,40 @@
 <script>
 (function () {
   "use strict";
+  var menu = document.getElementById("mobile-menu");
+  var menuToggle = document.getElementById("menu-toggle");
+  var menuClose = document.getElementById("menu-close");
+
+  function openMenu() {
+    if (!menu || !menuToggle) return;
+    menu.classList.add("open");
+    menu.setAttribute("aria-hidden", "false");
+    menuToggle.setAttribute("aria-expanded", "true");
+    document.body.style.overflow = "hidden";
+    if (menuClose) menuClose.focus({ preventScroll: true });
+  }
+
+  function closeMenu() {
+    if (!menu || !menuToggle) return;
+    menu.classList.remove("open");
+    menu.setAttribute("aria-hidden", "true");
+    menuToggle.setAttribute("aria-expanded", "false");
+    document.body.style.overflow = "";
+  }
+
+  if (menuToggle) menuToggle.addEventListener("click", openMenu);
+  if (menuClose) menuClose.addEventListener("click", closeMenu);
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && menu && menu.classList.contains("open")) closeMenu();
+  });
+
   document.querySelectorAll('a[href^="#"]').forEach(function (a) {
     a.addEventListener("click", function (e) {
       var id = a.getAttribute("href");
       var target = id && document.querySelector(id);
       if (!target) return;
       e.preventDefault();
+      closeMenu();
       window.scrollTo({ top: target.getBoundingClientRect().top + window.pageYOffset - 84, behavior: "smooth" });
     });
   });
