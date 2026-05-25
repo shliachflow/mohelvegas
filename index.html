@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Baby Circumcisions in Las Vegas by Rabbi Yossi Shuchat, Certified Mohel. Doctor recommended, 5 star reviews, ritual circumcision / Brit Milah, and direct parent support.">
+  <meta name="description" content="Baby Circumcisions in Las Vegas by Rabbi Yossi Shuchat, Certified Mohel. Doctor recommended, 5 star reviews, ritual circumcision / Brit Milah, and available travel by arrangement.">
   <meta name="theme-color" content="#183047">
   <meta property="og:title" content="Baby Circumcisions in Las Vegas | Rabbi Yossi Shuchat">
-  <meta property="og:description" content="Doctor recommended baby circumcisions in Las Vegas. Certified Mohel for ritual circumcision / Brit Milah with 5 star reviews.">
+  <meta property="og:description" content="Doctor recommended baby circumcisions in Las Vegas. Certified Mohel for ritual circumcision / Brit Milah with 5 star reviews and travel by arrangement.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://mohel.vegas">
   <title>Baby Circumcisions in Las Vegas | Rabbi Yossi Shuchat</title>
@@ -31,6 +31,17 @@
       "postalCode": "89121",
       "addressCountry": "US"
     },
+    "areaServed": [
+      "Las Vegas, Nevada",
+      "Henderson, Nevada",
+      "Nevada",
+      "California",
+      "Utah",
+      "Arizona",
+      "Colorado",
+      "Mexico",
+      "Hawaii"
+    ],
     "url": "https://mohel.vegas",
     "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5", "reviewCount": "8" }
   }
@@ -306,6 +317,7 @@
       font-size: clamp(1.08rem, 1.28vw, 1.18rem);
       line-height: 1.78;
       color: rgba(255,255,255,.72);
+      overflow-wrap: anywhere;
     }
     .hero-actions { position: relative; z-index: 1; display: flex; gap: .75rem; flex-wrap: wrap; margin-top: 2.1rem; }
     .hero-meta {
@@ -357,6 +369,7 @@
     }
     .photo-frame span { position: relative; z-index: 1; display: block; margin-top: .8rem; color: var(--gold); font-size: .76rem; font-weight: 850; letter-spacing: .16em; text-transform: uppercase; }
     .photo-frame .heb { position: relative; z-index: 1; margin-top: .75rem; color: var(--ink-2); }
+    .photo-frame > div { max-width: calc(100% - 2.5rem); }
 
     .trust { padding: clamp(5.5rem, 10vw, 9rem) 0; background: linear-gradient(180deg, #fffdf9, #f6ead8); border-block: 1px solid var(--line); }
     .trust-grid { display: grid; grid-template-columns: minmax(0, 1fr) 290px; gap: clamp(4rem, 9vw, 9rem); align-items: end; }
@@ -399,6 +412,82 @@
     .credential { padding: 1.2rem; background: rgba(255,253,249,.72); }
     .credential b { display: block; font-size: .7rem; letter-spacing: .13em; text-transform: uppercase; color: var(--gold); }
     .credential span { display: block; margin-top: .48rem; color: var(--ink); line-height: 1.48; font-size: 1.01rem; }
+
+    .areas {
+      padding-top: 0;
+      background: linear-gradient(180deg, #fff8ed, #fffdf9);
+    }
+    .areas-panel {
+      display: grid;
+      grid-template-columns: minmax(0, .9fr) minmax(0, 1.15fr);
+      gap: clamp(3rem, 7vw, 6.5rem);
+      align-items: start;
+      padding: clamp(2.4rem, 5vw, 4.4rem) 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .areas h2 {
+      margin: .65rem 0 0;
+      font-family: var(--display);
+      font-size: clamp(3.65rem, 6.4vw, 6.25rem);
+      font-weight: 400;
+      line-height: .9;
+      color: var(--ink);
+    }
+    .areas p {
+      max-width: 640px;
+      margin: 1.25rem 0 0;
+      color: var(--muted);
+      font-size: clamp(1.08rem, 1.18vw, 1.18rem);
+      line-height: 1.82;
+    }
+    .area-list {
+      display: grid;
+      gap: 1.1rem;
+    }
+    .area-group {
+      padding: 1.35rem;
+      border: 1px solid var(--line);
+      background: rgba(255,253,249,.66);
+    }
+    .area-group b {
+      display: block;
+      margin-bottom: .8rem;
+      color: var(--gold);
+      font-size: .7rem;
+      font-weight: 850;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    .area-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .55rem;
+    }
+    .area-tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 38px;
+      padding: .58rem .8rem;
+      border: 1px solid rgba(24,48,71,.13);
+      background: rgba(255,255,255,.64);
+      color: var(--ink-2);
+      font-size: .82rem;
+      font-weight: 850;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .area-tag.primary {
+      border-color: var(--ink);
+      background: var(--ink);
+      color: #fff;
+    }
+    .areas-note {
+      margin: .15rem 0 0;
+      color: var(--muted);
+      font-size: .98rem;
+      line-height: 1.7;
+    }
 
     .reviews { background: linear-gradient(180deg, #fffaf2, #fffdf9); border-block: 1px solid var(--line); }
     .featured-review { padding: clamp(2rem, 5vw, 4rem); background: var(--ink); color: #fff; margin-bottom: 1.5rem; box-shadow: 0 30px 80px rgba(24,48,71,.14); }
@@ -452,7 +541,7 @@
       .hero-meta { grid-template-columns: 1fr; }
       .meta-item { border-right: 0; border-bottom: 1px solid rgba(255,255,255,.13); }
       .meta-item:last-child { border-bottom: 0; }
-      .trust-grid, .bio-layout, .section-head { grid-template-columns: 1fr; display: grid; }
+      .trust-grid, .bio-layout, .section-head, .areas-panel { grid-template-columns: 1fr; display: grid; }
       .seal { justify-self: start; width: 205px; }
       .review-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -471,17 +560,20 @@
       .hero { padding-top: 150px; }
       h1 { font-size: clamp(2.72rem, 11.2vw, 3.05rem); line-height: .95; }
       h1 span:nth-child(2) { font-size: .88em; }
-      .hero-copy { padding-inline: 1.25rem; }
-      .hero-lead { font-size: 1.03rem; line-height: 1.72; }
+      .hero-copy { padding-left: 1.25rem; padding-right: 3rem; }
+      .hero-lead { max-width: 32ch; font-size: 1rem; line-height: 1.72; }
       .hero-actions, .contact-actions { flex-direction: column; }
       .hero-actions .btn, .contact-actions .btn { width: 100%; }
       .trust h2 { font-size: clamp(3.65rem, 16vw, 5rem); }
       .trust-grid { gap: 2.7rem; }
       .trust-points { display: grid; grid-template-columns: 1fr; gap: .9rem; }
       .section-head h2 { font-size: clamp(3.25rem, 14vw, 4.55rem); }
+      .areas h2 { font-size: clamp(3.2rem, 13.5vw, 4.45rem); }
+      .area-group { padding: 1.1rem; }
+      .area-tag { width: 100%; justify-content: center; }
       .credentials, .review-list, .gallery-grid { grid-template-columns: 1fr; }
       .featured-review blockquote { font-size: clamp(2.42rem, 12vw, 3.45rem); }
-      .photo-frame strong { font-size: clamp(1.7rem, 8vw, 2.25rem); }
+      .photo-frame strong { display: block; font-size: clamp(1.42rem, 7vw, 1.95rem); overflow-wrap: anywhere; }
       #wa-float { right: .85rem; bottom: calc(.85rem + env(safe-area-inset-bottom, 0px)); z-index: 9999; }
       #wa-float a { width: 54px; height: 54px; }
     }
@@ -506,6 +598,7 @@
     </a>
     <div class="nav-links">
       <a href="#bio">Bio</a>
+      <a href="#areas">Areas</a>
       <a href="#reviews">Reviews</a>
       <a href="#gallery">Gallery</a>
       <a href="#contact">Contact</a>
@@ -533,6 +626,7 @@
     </div>
     <div class="mobile-menu-links">
       <a href="#bio">Bio</a>
+      <a href="#areas">Areas</a>
       <a href="#reviews">Reviews</a>
       <a href="#gallery">Gallery</a>
       <a href="#contact">Contact</a>
@@ -553,7 +647,7 @@
       </div>
       <h1 id="hero-title" data-r data-d="1">Baby <span>Circumcisions</span><span>in Las Vegas</span></h1>
       <p class="legal" data-r data-d="2">Ritual Circumcision / Brit Milah <span class="heb">ברית מילה</span></p>
-      <p class="hero-lead" data-r data-d="2">Certified Mohel serving Las Vegas families with calm, careful, doctor recommended care, 5 star reviews, and direct support before and after the bris.</p>
+      <p class="hero-lead" data-r data-d="2">Certified Mohel serving families with calm, careful, doctor recommended care, 5 star reviews, and direct support before and after the bris.</p>
       <div class="hero-actions" data-r data-d="3">
         <a href="tel:7023345463" class="btn btn-gold">Call Now</a>
         <a href="https://wa.me/17023345463" class="btn btn-wa" target="_blank" rel="noopener noreferrer">WhatsApp</a>
@@ -585,7 +679,7 @@
         <div class="trust-points" aria-label="Trust highlights">
           <span>Doctor recommended</span>
           <span>5 star reviews</span>
-          <span>Las Vegas families</span>
+          <span>Local families</span>
         </div>
       </div>
       <div class="seal" data-r data-d="1" aria-label="#1 Doctor Recommended">
@@ -622,6 +716,41 @@
             <div class="credential"><b>Boards</b><span>American Board of Ritual Circumcision, International Bris Association</span></div>
             <div class="credential"><b>Languages</b><span>English, Hebrew, Spanish and French</span></div>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section areas" id="areas" aria-labelledby="areas-title">
+    <div class="container">
+      <div class="areas-panel" data-r>
+        <div>
+          <span class="eyebrow">Service area</span>
+          <h2 id="areas-title">Serving families near and far.</h2>
+          <p>Based in Las Vegas, Rabbi Yossi is available for local bris planning and travels by arrangement for families who want his calm, experienced care.</p>
+          <p class="heb">הרב יוסי משרת משפחות בלאס וגאס ונוסע לפי תיאום למקומות נוספים.</p>
+        </div>
+        <div class="area-list" aria-label="Service areas">
+          <div class="area-group">
+            <b>Primary local area</b>
+            <div class="area-tags">
+              <span class="area-tag primary">Las Vegas</span>
+              <span class="area-tag primary">Henderson</span>
+            </div>
+          </div>
+          <div class="area-group">
+            <b>Travels by arrangement</b>
+            <div class="area-tags">
+              <span class="area-tag">Nevada</span>
+              <span class="area-tag">California</span>
+              <span class="area-tag">Utah</span>
+              <span class="area-tag">Arizona</span>
+              <span class="area-tag">Colorado</span>
+              <span class="area-tag">Mexico</span>
+              <span class="area-tag">Hawaii</span>
+            </div>
+          </div>
+          <p class="areas-note">For out-of-town scheduling, call or WhatsApp directly to discuss timing, travel, and pediatrician coordination.</p>
         </div>
       </div>
     </div>
@@ -683,7 +812,7 @@
       <h2 id="contact-title">Speak with Rabbi Yossi.</h2>
       <div class="heb">צור קשר עם הרב יוסי</div>
       <a href="tel:7023345463" class="contact-phone">702-334-5463</a>
-      <p>For baby circumcisions in Las Vegas, ritual circumcision / Brit Milah, questions, scheduling, or doctor coordination, call or WhatsApp directly.</p>
+      <p>For baby circumcisions in Las Vegas, ritual circumcision / Brit Milah, travel questions, scheduling, or doctor coordination, call or WhatsApp directly.</p>
       <div class="contact-actions">
         <a href="tel:7023345463" class="btn btn-gold">Call Now</a>
         <a href="https://wa.me/17023345463" class="btn btn-wa" target="_blank" rel="noopener noreferrer">WhatsApp</a>
@@ -700,7 +829,7 @@
 
 <footer>
   <div class="container footer-inner">
-    <span>Rabbi Yossi Shuchat · Certified Mohel · Baby Circumcisions in Las Vegas</span>
+    <span>Rabbi Yossi Shuchat · Certified Mohel · Serving Las Vegas, Henderson, and traveling by arrangement</span>
     <a href="tel:7023345463">702-334-5463</a>
   </div>
 </footer>
