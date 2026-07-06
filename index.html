@@ -106,9 +106,9 @@
       --paper-2: #F0E2C9;
       --white: #FDF6EA;
       --gold: #B5502E;
-      --gold-2: #D98A5F;
+      --gold-2: #E3AC85;
       --line: #E6D3AE;
-      --muted: #7A6754;
+      --muted: #6B5843;
       --body: #241A14;
       --wa: #25d366;
       --display: "Fraunces", Georgia, serif;
@@ -120,6 +120,7 @@
       --radius-sm: 6px;
       --radius-md: 10px;
       --radius-lg: 14px;
+      --radius-xl: 20px;
       --radius-full: 9999px;
 
       --shadow-sm: 0 1px 2px rgba(36,26,20,.08), 0 2px 6px rgba(36,26,20,.06);
@@ -134,7 +135,8 @@
       scroll-behavior: smooth;
       overflow-x: hidden;
       font-kerning: normal;
-      font-feature-settings: "kern" 1, "liga" 1;
+      font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+      -moz-osx-font-smoothing: grayscale;
       -webkit-text-size-adjust: 100%;
       text-size-adjust: 100%;
       color-scheme: light;
@@ -403,7 +405,7 @@
       border: 1px solid rgba(255,255,255,.13);
       background: rgba(255,255,255,.08);
     }
-    .meta-item { padding: 1.1rem 1.15rem; border-right: 1px solid rgba(255,255,255,.13); background: rgba(21,14,9,.36); min-width: 0; }
+    .meta-item { padding: 1rem 1.5rem; border-right: 1px solid rgba(255,255,255,.13); background: rgba(21,14,9,.36); min-width: 0; }
     .meta-item:last-child { border-right: 0; }
     .meta-item b { display: block; font-size: .66rem; letter-spacing: .14em; text-transform: uppercase; color: var(--gold-2); }
     .meta-item span { display: block; margin-top: .48rem; font-size: 1rem; line-height: 1.35; color: rgba(255,255,255,.86); overflow-wrap: anywhere; }
@@ -526,7 +528,7 @@
       gap: 1.1rem;
     }
     .area-group {
-      padding: 1.35rem;
+      padding: 1.5rem;
       border: 1px solid var(--line);
       background: rgba(253,246,234,.66);
     }
@@ -582,7 +584,7 @@
     }
     .faq-item {
       background: rgba(253,246,234,.82);
-      padding: 1.45rem;
+      padding: 1.5rem;
     }
     .faq-item summary {
       cursor: pointer;
@@ -616,7 +618,7 @@
     .featured-review blockquote { margin: .8rem 0 0; max-width: 1040px; font-family: var(--display); font-size: clamp(2.85rem, 5.55vw, 5.95rem); line-height: .96; font-weight: 300; letter-spacing: -.03em; text-wrap: balance; }
     .featured-review cite { display: block; margin-top: 1.2rem; color: rgba(255,255,255,.58); font-style: normal; font-size: .76rem; font-weight: 850; letter-spacing: .13em; text-transform: uppercase; }
     .review-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); }
-    .review { padding: 1.45rem; background: rgba(253,246,234,.82); min-width: 0; }
+    .review { padding: 1.5rem; background: rgba(253,246,234,.82); min-width: 0; }
     .review .stars { color: var(--gold); font-size: .8rem; letter-spacing: .18em; }
     .review p { margin: .85rem 0 0; color: #2E2115; line-height: 1.72; font-size: 1rem; }
     .review b { display: block; margin-top: 1rem; color: var(--ink-2); font-size: .7rem; letter-spacing: .11em; text-transform: uppercase; }
