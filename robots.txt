@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://shliachflow.github.io/mohelvegas/sitemap.xml
+# LLM-oriented site summary: https://shliachflow.github.io/mohelvegas/llms.txt
